@@ -2,13 +2,13 @@
 %global         __strip /bin/true
 
 # Remove bundled libraries from requirements/provides
-%global         __requires_exclude ^(libvk_swiftshader.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*)$
+%global         __requires_exclude ^(libvk_swiftshader.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*|libffmpeg\\.so.*)$
 %global         __provides_exclude ^(lib.*\\.so.*)$
 
 Name:           authy
 Summary:        2-Factor Authentication
 Version:        1.8.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
@@ -95,5 +95,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Sun Oct 25 2020 Simone Caronni <negativo17@gmail.com> - 1.8.3-2
+- Fix library filter.
+
 * Thu Sep 10 2020 Simone Caronni <negativo17@gmail.com> - 1.8.3-1
 - First build.
