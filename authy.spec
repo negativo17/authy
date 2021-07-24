@@ -7,15 +7,15 @@
 
 Name:           authy
 Summary:        2-Factor Authentication
-Version:        1.8.3
-Release:        2%{?dist}
+Version:        1.8.4
+Release:        1%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
 
 # Get it with:
 # curl -H 'Snap-Device-Series: 16' http://api.snapcraft.io/v2/snaps/info/authy | jq
-Source0:        https://api.snapcraft.io/api/v1/snaps/download/H8ZpNgIoPyvmkgxOWw5MSzsXK1wRZiHn_5.snap
+Source0:        https://api.snapcraft.io/api/v1/snaps/download/H8ZpNgIoPyvmkgxOWw5MSzsXK1wRZiHn_6.snap
 
 Source2:        authy-wrapper
 #Source4:        authy.appdata.xml
@@ -95,6 +95,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Sat Jul 24 2021 Simone Caronni <negativo17@gmail.com> - 1.8.4-1
+- Update to 1.8.4.
+
 * Sun Oct 25 2020 Simone Caronni <negativo17@gmail.com> - 1.8.3-2
 - Fix library filter.
 
