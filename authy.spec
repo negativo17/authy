@@ -7,13 +7,14 @@
 
 Name:           authy
 Summary:        2-Factor Authentication
-Version:        1.8.4
+Version:        1.9.0
 Release:        1%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
 
 Source0:        %{name}-%{version}.tar.xz
+Source1:        %{name}-tarball.py
 
 Source2:        %{name}-wrapper
 #Source4:        authy.appdata.xml
@@ -42,8 +43,7 @@ them to your tablet and smartphone? With Twilio Authy you can simply add devices
 to your account and all of your 2FA tokens will automatically synchronize.
 
 %prep
-%setup -q -c -T
-unsquashfs -f -d . %{SOURCE0}
+%autosetup
 
 chrpath -d %{name}
 
@@ -93,6 +93,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Sat Nov 20 2021 Simone Caronni <negativo17@gmail.com> - 1.9.0-1
+- Update to version 1.9.0.
+
 * Sat Jul 24 2021 Simone Caronni <negativo17@gmail.com> - 1.8.4-1
 - Update to 1.8.4.
 
