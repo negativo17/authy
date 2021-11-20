@@ -13,11 +13,9 @@ License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
 
-# Get it with:
-# curl -H 'Snap-Device-Series: 16' http://api.snapcraft.io/v2/snaps/info/authy | jq
-Source0:        https://api.snapcraft.io/api/v1/snaps/download/H8ZpNgIoPyvmkgxOWw5MSzsXK1wRZiHn_6.snap
+Source0:        %{name}-%{version}.tar.xz
 
-Source2:        authy-wrapper
+Source2:        %{name}-wrapper
 #Source4:        authy.appdata.xml
 
 BuildRequires:  chrpath
@@ -58,7 +56,7 @@ sed -i -e 's/^Icon=.*/Icon=authy/g' meta/gui/%{name}.desktop
 mkdir -p %{buildroot}%{_libdir}/%{name}
 
 # Program resources
-cp -frp authy locales resources swiftshader *.pak *.dat *.so *.bin \
+cp -frp %{name} locales resources swiftshader *.pak *.dat *.so *.bin \
     %{buildroot}%{_libdir}/%{name}
 
 # Set permissions
