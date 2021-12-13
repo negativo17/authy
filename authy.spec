@@ -1,5 +1,7 @@
 %global         debug_package %{nil}
 %global         __strip /bin/true
+# Build id links are sometimes in conflict with other RPMs.
+%define         _build_id_links none
 
 # Remove bundled libraries from requirements/provides
 %global         __requires_exclude ^(libvk_swiftshader.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*|libffmpeg\\.so.*)$
@@ -8,7 +10,7 @@
 Name:           authy
 Summary:        2-Factor Authentication
 Version:        1.9.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
@@ -93,6 +95,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Mon Dec 13 2021 Simone Caronni <negativo17@gmail.com> - 1.9.0-2
+- Fix build id links in conflict with other RPMs.
+
 * Sat Nov 20 2021 Simone Caronni <negativo17@gmail.com> - 1.9.0-1
 - Update to version 1.9.0.
 
