@@ -9,8 +9,8 @@
 
 Name:           authy
 Summary:        2-Factor Authentication
-Version:        1.9.0
-Release:        2%{?dist}
+Version:        2.1.0
+Release:        1%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
@@ -95,6 +95,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Thu Mar 10 2022 Simone Caronni <negativo17@gmail.com> - 2.1.0-1
+- Update to version 2.1.0.
+
 * Mon Dec 13 2021 Simone Caronni <negativo17@gmail.com> - 1.9.0-2
 - Fix build id links in conflict with other RPMs.
 
