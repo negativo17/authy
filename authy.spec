@@ -9,8 +9,8 @@
 
 Name:           authy
 Summary:        2-Factor Authentication
-Version:        2.2.0
-Release:        2%{?dist}
+Version:        2.2.1
+Release:        1%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
 ExclusiveArch:  x86_64
@@ -95,6 +95,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Tue Jul 19 2022 Simone Caronni <negativo17@gmail.com> - 2.2.1-1
+- Update to version 2.2.1.
+
 * Thu Jun 02 2022 Simone Caronni <negativo17@gmail.com> - 2.2.0-2
 - Disable GPU accelaration also on Authy.
 
