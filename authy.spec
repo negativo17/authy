@@ -49,7 +49,12 @@ to your account and all of your 2FA tokens will automatically synchronize.
 
 chrpath -d %{name}
 
-sed -i -e 's/^Icon=.*/Icon=authy/g' meta/gui/%{name}.desktop
+sed -i \
+    -e 's/^Icon=.*/Icon=authy/g' \
+%if 0%{?rhel} == 7
+    -e 's/Exec=authy/Exec=authy --no-sandbox/g' \
+%endif
+    meta/gui/%{name}.desktop
 
 %build
 # Nothing to build
