@@ -9,7 +9,7 @@
 
 Name:           authy
 Summary:        2-Factor Authentication
-Version:        2.3.0
+Version:        2.4.0
 Release:        1%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
@@ -95,6 +95,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 #%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Tue Aug 08 2023 Simone Caronni <negativo17@gmail.com> - 2.4.0-1
+- Update to version 2.4.0.
+
 * Wed May 10 2023 Simone Caronni <negativo17@gmail.com> - 2.3.0-1
 - Update to version 2.3.0.
 
