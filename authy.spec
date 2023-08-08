@@ -63,8 +63,8 @@ sed -i \
 mkdir -p %{buildroot}%{_libdir}/%{name}
 
 # Program resources
-cp -frp %{name} locales resources swiftshader *.pak *.dat *.so *.bin \
-    %{buildroot}%{_libdir}/%{name}
+cp -fra * %{buildroot}%{_libdir}/%{name}
+rm -fr %{buildroot}%{_libdir}/%{name}/meta
 
 # Set permissions
 find %{buildroot}%{_libdir}/%{name} -name "*.so" -exec chmod 755 {} \;
