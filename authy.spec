@@ -1,15 +1,15 @@
-%global         debug_package %{nil}
-%global         __strip /bin/true
+%global debug_package %{nil}
+%global __strip /bin/true
 # Build id links are sometimes in conflict with other RPMs.
-%define         _build_id_links none
+%define _build_id_links none
 
 # Remove bundled libraries from requirements/provides
-%global         __requires_exclude ^(libvk_swiftshader.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*|libffmpeg\\.so.*)$
-%global         __provides_exclude ^(lib.*\\.so.*)$
+%global __requires_exclude ^(libvk_swiftshader.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*|libffmpeg\\.so.*)$
+%global __provides_exclude ^(lib.*\\.so.*)$
 
 Name:           authy
 Summary:        2-Factor Authentication
-Version:        2.4.1
+Version:        2.4.2
 Release:        1%{?dist}
 License:        https://www.spotify.com/legal/end-user-agreement
 URL:            https://authy.com/
@@ -17,13 +17,10 @@ ExclusiveArch:  x86_64
 
 Source0:        %{name}-%{version}.tar.xz
 Source1:        %{name}-tarball.py
-
 Source2:        %{name}-wrapper
-#Source4:        authy.appdata.xml
 
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
-#BuildRequires:  libappstream-glib
 BuildRequires:  squashfs-tools
 
 Requires:       hicolor-icon-theme
@@ -84,22 +81,19 @@ install -m 0644 -D -p meta/gui/%{name}.desktop \
 install -p -D -m 644 meta/gui/icon.png \
     %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
-## Install AppData
-#mkdir -p %{buildroot}%{_metainfodir}/
-#install -p -m 0644 %{SOURCE4} %{buildroot}%{_metainfodir}/
-
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
-#appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/%{name}.appdata.xml
 
 %files
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_libdir}/%{name}
-#%{_metainfodir}/%{name}.appdata.xml
 
 %changelog
+* Fri Nov 10 2023 Simone Caronni <negativo17@gmail.com> - 2.4.2-1
+- Update to version 2.4.2.
+
 * Sat Sep 02 2023 Simone Caronni <negativo17@gmail.com> - 2.4.1-1
 - Update to version 2.4.1.
 
